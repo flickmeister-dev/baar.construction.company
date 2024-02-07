@@ -13,16 +13,12 @@ document.addEventListener('DOMContentLoaded',() => {
   const phoneInput = document.querySelector('.phone')
   const sendBtn = document.querySelector('.form-btn')
 
-  const mask = new IMask (phoneInput, {
-    mask: "+{38}(000)-00-00-000"
-  })
-
 
   const sendEmail = () => {
     Email.send({
       Host : "smtp.elasticemail.com",
       Username : "baar.ua.supp@gmail.com",
-      Password : "C9DFDC271E045190F4CAEA6207398FDDA255",
+      Password : "13470E4D40FA1D73F0AF8D23CB91CAB5C1C4",
       To : 'baar.ua.supp@gmail.com',
       From : "baar.ua.supp@gmail.com",
       Subject : "Нове замовлення!!!",
@@ -40,7 +36,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
   openCallMe.onclick = function () {
     const sentDateString = localStorage.getItem('emailSent');
-    const emailSent = sentDateString && (Date.now() - parseInt(sentDateString)) < 3600000; // 60min
+    const emailSent = sentDateString && (Date.now() - parseInt(sentDateString)) < 20000; // 60min
 
     if (emailSent) {
       feedBackBodyEnd.style.display='block';
@@ -57,13 +53,6 @@ document.addEventListener('DOMContentLoaded',() => {
       feedBackBodyEnd.style.display='none';
   };
 
-  giftCLose.onclick = function () {
-    gift.style.display='none';
-  };
-
-  openGift.onclick = function () {
-    gift.style.display='block';
-  };
 
 
   form.addEventListener('submit', (e) => {
@@ -91,6 +80,9 @@ document.addEventListener('DOMContentLoaded',() => {
 });
 
 
+const mask = new IMask (phoneInput, {
+  mask: "+{38}(000)-00-00-000"
+})
 
 let prevScrollpos = window.pageYOffset;
 
@@ -120,7 +112,4 @@ function initMap() {
 
 window.initMap = initMap;
 
-function noDigits(event) {
-    if ("1234567890".indexOf(event.key) != -1)
-        event.preventDefault();
-}
+

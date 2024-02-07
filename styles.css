@@ -207,11 +207,6 @@ html{
     background-color: orange;
 }
 
-.feedback-form button:active{
-    display: none;
-    background-color: green;
-    cursor: pointer;
-}
 
 .feedback-close {
     position: absolute;
